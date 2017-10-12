@@ -1,0 +1,12 @@
+#! /bin/bash
+
+xset dpms 300
+
+while true; do
+	sleep 1s;
+	if [ "$(xset q | grep 'Monitor is' | grep -v 'On' 2> /dev/null)" != "" ]; then
+		if [ "$(ps aux | grep '[i]3lock')" == "" ]; then
+			locker
+		fi
+	fi
+done

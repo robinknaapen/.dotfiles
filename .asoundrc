@@ -1,0 +1,2 @@
+defaults.pcm.!card "NTUSB"
+defaults.ctl.!card "NTUSB"

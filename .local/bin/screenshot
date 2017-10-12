@@ -1,0 +1,14 @@
+#!/bin/bash
+DATE=$(date '+%Y-%m-%d-%H:%M:%S')
+URL="https://ss.kumori.moe/upload"
+IMG="/tmp/$DATE.png"
+
+maim -s $IMG
+
+if [ $? == 0 ]; then
+	RES=$(curl -s -F "file=@$IMG" $URL | tr -d '\n')
+
+	echo $RES | xsel -b
+	notify-send -u low "Upload done" "$RES"
+fi
+

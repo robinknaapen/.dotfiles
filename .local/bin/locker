@@ -1,0 +1,36 @@
+#!/bin/bash
+
+if [ "$(xrandr | grep 3440x1440)" != "" ]; then
+	SCALE="100%"
+	DIR=$(echo -e "+800+0\n-800+0" | sort -R | head -1)
+else
+	SCALE="75%"
+	DIR=$(echo -e "+500+0\n-500+0" | sort -R | head -1)
+fi
+
+IMAGE=/tmp/screenlock.png
+
+IMG="$HOME/.local/share/locker/imgs/"
+IMG=$IMG$(ls $IMG | sort -R | head -1)
+
+echo $DIR
+
+maim -m 1 $IMAGE
+convert $IMAGE -level 0,125%,1 -filter gaussian -blur 0x9 \
+	-gravity center -matte \
+	"$IMG[$SCALE]" -level 0,125%,1 -geometry $DIR -composite \
+	$HOME/.local/share/locker/lock.png -composite \
+	-font Noto-Sans-CJK-JP-Regular -pointsize 25 -fill 'rgba(255,255,255,0.85)' -draw "text 0,150 'Enter password'" \
+	-font Noto-Sans-CJK-JP-Regular -pointsize 20 -fill 'rgba(255,255,255,0.60)' -draw "text 0,200 'パスワードを入力する'" \
+	$IMAGE
+
+i3lock \
+	--textcolor=00000000 \
+	--separatorcolor=00000000 --linecolor=00000000 \
+	--keyhlcolor=22cc2288 --bshlcolor=cc222288 \
+	--insidecolor=33333344 --ringcolor=aaaaaa88 \
+	--insidevercolor=55555544 --ringvercolor=cccccc88 \
+	--insidewrongcolor=cc222244 --ringwrongcolor=cc222288 \
+	-eni $IMAGE
+
+rm $IMAGE

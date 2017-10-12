@@ -1,0 +1,76 @@
+#!/bin/bash 
+SRC=$(pwd)
+TRG=$HOME
+PKG="xbps-install -Sfy"
+
+function spacer {
+	printf "\n"
+}
+
+function add {
+	printf "Installing $* \n"
+	sudo $PKG $@ > /dev/null 2>&1
+}
+
+function link {
+	printf "$SRC/$1 -> $TRG/$1\n"
+	ln -snf "$SRC/$1" "$TRG/$1"
+}
+
+mkdir -p "$TRG/.config"
+mkdir -p $TRG/.local/{share,bin}
+
+# nvim
+spacer
+add neovim python3-pip
+sudo pip3 install neovim > /dev/null 2>&1
+
+curl -fsLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+link ".config/nvim"
+nvim -c ":PlugInstall" -c ":qall"
+
+# i3
+spacer
+add i3-gaps
+
+link ".config/i3"
+
+# zsh
+spacer
+add zsh zsh-completions
+
+spacer
+printf "Cloning oh-my-zsh\n"
+git clone git://github.com/robbyrussell/oh-my-zsh.git $TRG/.oh-my-zsh -q
+spacer
+
+curl -fsLo $TRG/.oh-my-zsh/custom/antigen.zsh --create-dirs git.io/antigen
+
+link ".oh-my-zsh/themes/fuyu.zsh-theme"
+link ".zshrc"
+
+# polybar
+spacer
+add polybar
+
+link ".config/polybar"
+
+# asoundrc
+link ".asoundrc"
+
+# dunst
+add dunst
+link ".config/dunst"
+
+# screenshot
+link ".local/bin/screenshot"
+
+# locker 
+link ".local/bin/locker"
+link ".local/share/locker"
+
+# watch-screen
+spacer
+add xset
+link ".local/bin/watch-screen"
