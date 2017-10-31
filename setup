@@ -8,12 +8,12 @@ function spacer {
 }
 
 function add {
-	printf "Installing $* \n"
+	printf "\e[33mInstalling\e[39m \e[32m$*\e[39m \n"
 	sudo $PKG $@ > /dev/null 2>&1
 }
 
 function link {
-	printf "$SRC/$1 -> $TRG/$1\n"
+	printf "\e[34m$SRC/$1\e[39m -> \e[34m$TRG/$1\e[39m\n"
 	ln -snf "$SRC/$1" "$TRG/$1"
 }
 
@@ -61,6 +61,7 @@ link ".config/polybar"
 link ".asoundrc"
 
 # dunst
+spacer
 add dunst
 link ".config/dunst"
 
