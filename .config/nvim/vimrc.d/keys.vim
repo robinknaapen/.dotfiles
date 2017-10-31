@@ -14,3 +14,5 @@ nnoremap    <silent> <Home>     ^
 vnoremap    <silent> <Home>     ^
 inoremap    <silent> <Home>     <C-o>^
 
+" csscomb on save
+autocmd BufWritePre,FileWritePre *.css,*.less,*.scss,*.sass silent! :Neoformat stylefmt

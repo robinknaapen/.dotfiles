@@ -28,6 +28,7 @@ sudo pip3 install neovim > /dev/null 2>&1
 curl -fsLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 link ".config/nvim"
+link ".stylelintrc.json"
 nvim -c ":PlugInstall" -c ":qall"
 
 # i3
@@ -41,7 +42,7 @@ spacer
 add zsh zsh-completions
 
 spacer
-printf "Cloning oh-my-zsh\n"
+printf "\e[33mCloning\e[39m \e[32moh-my-zsh\e[39m\n"
 git clone git://github.com/robbyrussell/oh-my-zsh.git $TRG/.oh-my-zsh -q
 spacer
 
@@ -74,3 +75,10 @@ link ".local/share/locker"
 spacer
 add xset
 link ".local/bin/watch-screen"
+
+# stylefmt
+spacer
+add yarn
+spacer
+printf "\e[33mInstalling\e[39m \e[32mstylefmt\e[39m\n"
+sudo yarn global add stylefmt stylelint stylelint-order stylelint-declaration-block-order --silent > /dev/null 2>&1

@@ -6,6 +6,9 @@ call plug#begin('~/.local/share/nvim/plugged')
 	" UI
 	Plug 'joshdick/onedark.vim'
 
+	" Formater
+	Plug 'sbdchd/neoformat'
+
 	" Helpers
 	Plug 'kien/ctrlp.vim'
 	Plug 'tpope/vim-commentary'
