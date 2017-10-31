@@ -11,7 +11,7 @@ offset-y = 0
 bottom = true
 locale = de_DE.UTF-8
  
-background = #DD000000
+background = #F01e2127
 foreground = #FF5252
  
 font-0 = Hack:size=12;4
@@ -61,11 +61,7 @@ interval = 1
 time = %H:%M
 date = %Y%{T3}年%{T-}%m%{T3}月%{T-}%d%{T3}日%{T-}
 label= %{F#AAA}%date%%{F-} %{F#FF5252}%time%%{F-}
-;format = %date%
 format-padding = 1
-;format-background = #a05881
 format-foreground = #FF5252
- 
- 
-; vim:ft=dosini
 
+; vim:ft=dosini
