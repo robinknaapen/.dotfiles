@@ -21,6 +21,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 	" Languages
 	Plug 'fatih/vim-go'
+	Plug 'leafgarland/typescript-vim'
 
 	" Git
 	Plug 'tpope/vim-fugitive'

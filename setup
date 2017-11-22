@@ -67,6 +67,7 @@ link ".config/dunst"
 
 # screenshot
 link ".local/bin/screenshot"
+link ".local/bin/upload"
 
 # locker 
 link ".local/bin/locker"

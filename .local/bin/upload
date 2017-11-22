@@ -1,0 +1,9 @@
+#!/bin/bash
+URL="https://ss.kumori.moe/upload"
+RES=$(curl -s -F "file=@$1" $URL | tr -d '\n')
+
+notify-send -u low "Upload done" "$RES"
+
+echo $RES
+
+printf "%s" "$RES" | xsel -b
