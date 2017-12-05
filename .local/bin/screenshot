@@ -1,5 +1,5 @@
 #!/bin/bash
-DATE=$(date '+%Y-%m-%d-%H:%M:%S')
+DATE=$(date '+%s%3N')
 IMG="/tmp/$DATE.png"
 
 maim -s $IMG
