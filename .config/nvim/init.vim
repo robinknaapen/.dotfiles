@@ -8,6 +8,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 	" Formater
 	Plug 'sbdchd/neoformat'
+	Plug 'Chiel92/vim-autoformat'
 
 	" Helpers
 	Plug 'kien/ctrlp.vim'
@@ -21,6 +22,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 	Plug 'Shougo/neco-vim'
 
 	" Languages
+    Plug 'othree/html5.vim'
 	Plug 'fatih/vim-go'
 	Plug 'leafgarland/typescript-vim'
     Plug 'ternjs/tern_for_vim', { 'for': 'javascript', 'do': 'yarn install'}
