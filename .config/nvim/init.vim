@@ -12,16 +12,18 @@ call plug#begin('~/.local/share/nvim/plugged')
 	" Helpers
 	Plug 'kien/ctrlp.vim'
 	Plug 'tpope/vim-commentary'
+	Plug 'vim-syntastic/syntastic'
 
 	" NCM
 	Plug 'roxma/nvim-completion-manager'
-	Plug 'roxma/nvim-cm-tern',  {'do': 'yarn install'}
+	Plug 'roxma/nvim-cm-tern',  { 'for': 'javascript', 'do': 'yarn install'}
 	Plug 'calebeby/ncm-css'
 	Plug 'Shougo/neco-vim'
 
 	" Languages
 	Plug 'fatih/vim-go'
 	Plug 'leafgarland/typescript-vim'
+    Plug 'ternjs/tern_for_vim', { 'for': 'javascript', 'do': 'yarn install'}
 
 	" Git
 	Plug 'tpope/vim-fugitive'
@@ -100,3 +102,11 @@ set shada=":0"
 
 " Show matching brace
 set showmatch
+
+" Vue files as HTML
+au BufRead,BufNewFile *.vue set filetype=html
+
+" Indent spaces
+set tabstop=4
+set shiftwidth=4
+set expandtab

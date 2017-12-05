@@ -16,3 +16,6 @@ inoremap    <silent> <Home>     <C-o>^
 
 " csscomb on save
 autocmd BufWritePre,FileWritePre *.css,*.less,*.scss,*.sass silent! :Neoformat stylefmt
+
+" GotoDefenition TernDef
+autocmd FileType javascript map <buffer> gd :TernDef<CR>
