@@ -27,3 +27,4 @@ alias umount="sudo umount"
 
 # Antigen
 antigen bundle zsh-users/zsh-syntax-highlighting
+antigen apply
