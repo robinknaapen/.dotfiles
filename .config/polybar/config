@@ -9,7 +9,7 @@ height = 30
 offset-x = 0
 offset-y = 0
 bottom = true
-locale = de_DE.UTF-8
+locale = en_US.UTF-8
  
 background = #F01e2127
 foreground = #FF5252
