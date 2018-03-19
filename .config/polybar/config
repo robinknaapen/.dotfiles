@@ -39,23 +39,21 @@ enable-click = false
 index-sort = true
 format = <label-state>
 
-margin = 10
- 
 pin-workspaces = false
 
-label-focused = %index%
+label-occupied = " %name% "
+label-empty =
+
+label-focused = " %name% "
 label-focused-background = #FF5252
 label-focused-foreground = #FFF
-label-focused-padding = 1.2
  
-label-unfocused = %index%
+label-unfocused = " %name% "
 label-unfocused-foreground = #FF5252 
-label-unfocused-padding = 1.2
  
-label-urgent = %index%
+label-urgent = " %name% "
 label-urgent-background = #D32F2F
 label-urgent-foreground = #FFF
-label-urgent-padding = 1.2
  
 [module/date]
 type = internal/date
