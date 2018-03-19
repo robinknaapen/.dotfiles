@@ -20,7 +20,7 @@ font-2 = "Noto Sans CJK JP Medium:size=12;4"
 
 border-left-size = 10
 border-right-size = 10
-modules-left =  i3
+modules-left = bspwm
 modules-center = date
 ; modules-right = date
  
@@ -32,8 +32,8 @@ padding-right = 0
 module-margin-left = 1
 module-margin-right = 1
 
-[module/i3]
-type = internal/i3
+[module/bspwm]
+type = internal/bspwm
 strip-wsnumbers = true
 enable-click = false
 index-sort = true
@@ -41,6 +41,8 @@ format = <label-state>
 
 margin = 10
  
+pin-workspaces = false
+
 label-focused = %index%
 label-focused-background = #FF5252
 label-focused-foreground = #FFF
