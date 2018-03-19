@@ -2,35 +2,7 @@
 scriptencoding utf-8
 set encoding=utf8
 
-call plug#begin('~/.local/share/nvim/plugged')
-	" UI
-	Plug 'joshdick/onedark.vim'
-
-	" Formater
-	Plug 'sbdchd/neoformat'
-	Plug 'Chiel92/vim-autoformat'
-
-	" Helpers
-	Plug 'kien/ctrlp.vim'
-	Plug 'tpope/vim-commentary'
-	Plug 'vim-syntastic/syntastic'
-
-	" NCM
-	Plug 'roxma/nvim-completion-manager'
-	Plug 'roxma/nvim-cm-tern',  { 'for': 'javascript', 'do': 'yarn install'}
-	Plug 'calebeby/ncm-css'
-	Plug 'Shougo/neco-vim'
-
-	" Languages
-    Plug 'othree/html5.vim'
-	Plug 'fatih/vim-go'
-	Plug 'leafgarland/typescript-vim'
-    Plug 'ternjs/tern_for_vim', { 'for': 'javascript', 'do': 'yarn install'}
-
-	" Git
-	Plug 'tpope/vim-fugitive'
-	Plug 'airblade/vim-gitgutter'
-call plug#end()
+exe 'source' '~/.config/nvim/plug.vim'
 
 for f in split(glob('~/.config/nvim/vimrc.d/*'), '\n')
     exe 'source' f
@@ -57,11 +29,10 @@ set inccommand=split
 " Clipboard
 set clipboard=unnamedplus
 
-" Mouse
-set mouse=a
+" Hairline
+set tw=79
 
 " Line numbers
-set relativenumber
 set number
 set numberwidth=6
 set cursorline
@@ -70,6 +41,7 @@ highlight LineNr ctermfg=darkgrey
 " Syntax highlighting
 syntax on
 colorscheme onedark
+highlight ColorColumn guibg=Black
 
 " Make background transparent
 set termguicolors
@@ -105,10 +77,27 @@ set shada=":0"
 " Show matching brace
 set showmatch
 
-" Vue files as HTML
-au BufRead,BufNewFile *.vue set filetype=html
+" Prevent vue syntax hl from breaking
+autocmd FileType vue syntax sync fromstart
 
 " Indent spaces
 set tabstop=4
 set shiftwidth=4
-set expandtab
+set noexpandtab
+set formatoptions+=t
+
+" Fucking Hardmode
+autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+
+vmap <C-Left> <nop>
+vmap <C-Right> <nop>
+vmap <C-Up> <nop>
+vmap <C-Down> <nop>
+map <C-Left> <nop>
+map <C-Right> <nop>
+map <C-Up> <nop>
+map <C-Down> <nop>
+imap <C-Left> <nop>
+imap <C-Right> <nop>
+imap <C-Up> <nop>
+imap <C-Down> <nop>

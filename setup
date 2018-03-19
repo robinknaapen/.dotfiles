@@ -29,7 +29,7 @@ curl -fsLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.
 
 link ".config/nvim"
 link ".stylelintrc.json"
-nvim -c ":PlugInstall" -c ":qall"
+nvim -u "$TRG/.config/nvim/plug.vim" -c ":PlugInstall" -c ":qall"
 
 # i3
 spacer
