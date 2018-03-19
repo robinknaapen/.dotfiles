@@ -8,6 +8,8 @@ vnoremap d "_d
 " NCM
 let g:cm_auto_popup = 0
 imap <C-Space> <Plug>(cm_force_refresh)
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " <Home> ignore leading whitespaces
 nnoremap    <silent> <Home>     ^
@@ -18,4 +20,7 @@ inoremap    <silent> <Home>     <C-o>^
 autocmd BufWritePre,FileWritePre *.css,*.less,*.scss,*.sass silent! :Neoformat stylefmt
 
 " GotoDefenition TernDef
-autocmd FileType javascript map <buffer> gd :TernDef<CR>
+autocmd FileType javascript,typescript map <buffer> gd :TSDef<CR>
+
+" In go user <C-x><C-o> for autocomplete
+autocmd FileType go imap <C-Space> <C-x><C-o>
