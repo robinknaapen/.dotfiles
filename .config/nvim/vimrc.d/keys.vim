@@ -7,7 +7,7 @@ vnoremap d "_d
 
 " NCM
 let g:cm_auto_popup = 0
-imap <C-Space> <Plug>(cm_force_refresh)
+imap <C-Space> <Plug>(ncm2_manual_trigger)
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
@@ -24,3 +24,6 @@ autocmd FileType javascript,typescript map <buffer> gd :TSDef<CR>
 
 " In go user <C-x><C-o> for autocomplete
 autocmd FileType go imap <C-Space> <C-x><C-o>
+
+" Bind <C-A-p> to :GoDecls
+autocmd FileType go map <C-A-p> :GoDecls<CR>

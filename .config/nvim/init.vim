@@ -11,6 +11,13 @@ endfor
 """""""""""""""
 " GUI
 """""""""""""""
+
+" Prevent lag in large files
+set lazyredraw
+
+" Rainbow parentheses
+let g:rainbow_active = 1
+
 " Disable auto newlines
 set wrap
 set textwidth=0
@@ -35,7 +42,6 @@ set tw=79
 " Line numbers
 set number
 set numberwidth=6
-set cursorline
 highlight LineNr ctermfg=darkgrey
 
 " Syntax highlighting
@@ -46,6 +52,7 @@ highlight ColorColumn guibg=Black
 " Make background transparent
 set termguicolors
 hi! Normal ctermbg=NONE guibg=NONE
+hi! LineNr ctermbg=NONE guibg=NONE
 
 " Indent
 set tabstop=4 
@@ -101,3 +108,8 @@ imap <C-Left> <nop>
 imap <C-Right> <nop>
 imap <C-Up> <nop>
 imap <C-Down> <nop>
+
+" psql as default SQL accent
+let g:sql_type_default = 'pgsql'
+
+" autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.typescript.scss
