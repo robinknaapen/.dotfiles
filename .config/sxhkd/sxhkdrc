@@ -8,7 +8,7 @@ super + Return
 
 # program launcher
 super + @space
-	dmenu_run -i -fn 'Hack-12' -nb "#212121" -nf "#AAA" -sb "#FF5252" -sf "#FFF" -dim .5 -h 50 -w 1000 -centerx -y 695 -hist $HOME/.dmenu_hist
+	dmenu_run -i -fn 'Hack-12' -nb "#212121" -nf "#AAA" -sb "#FF5252" -sf "#FFF" -dim .5 -h 50 -w 1000 -centerx -y 695 -class "dmenu" -hist $HOME/.dmenu_hist
 
 # make sxhkd reload its configuration files:
 super + Escape
