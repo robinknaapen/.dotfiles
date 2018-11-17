@@ -6,7 +6,7 @@ nnoremap d "_d
 vnoremap d "_d
 
 " NCM
-let g:cm_auto_popup = 0
+let g:ncm2_auto_popup = 0
 imap <C-Space> <Plug>(ncm2_manual_trigger)
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
@@ -23,7 +23,7 @@ autocmd BufWritePre,FileWritePre *.css,*.less,*.scss,*.sass silent! :Neoformat s
 autocmd FileType javascript,typescript map <buffer> gd :TSDef<CR>
 
 " In go user <C-x><C-o> for autocomplete
-autocmd FileType go imap <C-Space> <C-x><C-o>
+" autocmd FileType go imap <C-Space> <C-x><C-o>
 
 " Bind <C-A-p> to :GoDecls
 autocmd FileType go map <C-A-p> :GoDecls<CR>

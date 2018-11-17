@@ -93,23 +93,9 @@ set shiftwidth=4
 set noexpandtab
 set formatoptions+=t
 
-" Fucking Hardmode
-autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
-
-vmap <C-Left> <nop>
-vmap <C-Right> <nop>
-vmap <C-Up> <nop>
-vmap <C-Down> <nop>
-map <C-Left> <nop>
-map <C-Right> <nop>
-map <C-Up> <nop>
-map <C-Down> <nop>
-imap <C-Left> <nop>
-imap <C-Right> <nop>
-imap <C-Up> <nop>
-imap <C-Down> <nop>
-
 " psql as default SQL accent
 let g:sql_type_default = 'pgsql'
 
-" autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.typescript.scss
+" NCM
+autocmd BufEnter * call ncm2#enable_for_buffer()
+set completeopt=noinsert,menuone,noselect
