@@ -12,6 +12,8 @@ let g:go_highlight_fields = 1
 let g:go_highlight_types = 1
 let g:go_highlight_generate_tags = 1
 
+let g:go_gocode_propose_source = 1
+
 let g:go_metalinter_autosave = 1
 let g:go_metalinter_autosave_enabled = ['vet', 'golint', 'ineffassign', 'vetshadow']
 

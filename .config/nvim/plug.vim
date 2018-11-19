@@ -10,9 +10,9 @@ call plug#begin('~/.local/share/nvim/plugged')
 	Plug 'kien/ctrlp.vim'
 	Plug 'tpope/vim-commentary'
 
-	" NCM
+	" Deoplete
 	Plug 'ncm2/ncm2'
-	Plug 'roxma/nvim-yarp'
+    Plug 'roxma/nvim-yarp'
 	Plug 'ncm2/ncm2-go'
 
 	" Languages
