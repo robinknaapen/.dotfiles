@@ -97,5 +97,9 @@ set formatoptions+=t
 let g:sql_type_default = 'pgsql'
 
 " NCM
+autocmd BufEnter *.vue set filetype=vue
 autocmd BufEnter * call ncm2#enable_for_buffer()
 set completeopt=noinsert,menuone,noselect
+let g:LanguageClient_serverCommands = {
+    \ 'vue': ['vls']
+\ }
