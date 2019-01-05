@@ -60,6 +60,7 @@ set shiftwidth=4
 set noexpandtab
 
 " ctrlp
+let g:ctrlp_regexp = 1
 let g:ctrlp_working_path_mode = 'r'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
 let g:netrw_dirhistmax=0
@@ -71,8 +72,8 @@ set shortmess+=c
 " Ruler
 set ruler
 
-" Remove laststatus
-set laststatus=0
+" Show filename
+set laststatus=2
 
 """""""""""""""
 " Useability
@@ -85,6 +86,7 @@ set shada=":0"
 set showmatch
 
 " Prevent vue syntax hl from breaking
+autocmd BufEnter *.vue set filetype=vue
 autocmd FileType vue syntax sync fromstart
 
 " Indent spaces
@@ -97,9 +99,16 @@ set formatoptions+=t
 let g:sql_type_default = 'pgsql'
 
 " NCM
-autocmd BufEnter *.vue set filetype=vue
 autocmd BufEnter * call ncm2#enable_for_buffer()
 set completeopt=noinsert,menuone,noselect
+let g:ncm2#matcher = 'prefix'
 let g:LanguageClient_serverCommands = {
-    \ 'vue': ['vls']
+	\ 'vue': ['vls'],
+	\ 'cpp': ['ccls']
 \ }
+
+" vim-codefmt
+call glaive#Install()
+augroup autoformat_settings
+	autocmd FileType c,cpp AutoFormatBuffer clang-format
+augroup END
