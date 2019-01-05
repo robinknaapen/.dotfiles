@@ -37,26 +37,23 @@ module-margin-right = 1
 
 [module/bspwm]
 type = internal/bspwm
-strip-wsnumbers = true
 enable-click = false
 index-sort = true
 format = <label-state>
-
 pin-workspaces = false
 
 label-occupied = " %name% "
-label-empty =
+label-occupied-foreground = #AAA
+
+label-empty = " %name% "
+label-empty-foreground = #34FFFFFF
 
 label-focused = " %name% "
 label-focused-background = #FF5252
 label-focused-foreground = #FFF
 
-label-unfocused = " %name% "
-label-unfocused-foreground = #FF5252
-
 label-urgent = " %name% "
-label-urgent-background = #D32F2F
-label-urgent-foreground = #FFF
+label-urgent-foreground = #FF5252
 
 [module/date]
 locale=en_US.UTF-8
