@@ -5,7 +5,7 @@ plugins=(git antigen)
 # Exports
 export ZSH=$HOME/.oh-my-zsh
 export GOPATH="$HOME/.Go"
-export PATH="$PATH:$HOME/.yarn/bin:$HOME/.local/bin:$GOPATH/bin:/home/crow/Android/Sdk/platform-tools"
+export PATH="$PATH:$HOME/.yarn/bin:$HOME/.local/bin:$GOPATH/bin:$HOME/.cargo/bin"
 export ANDROID_HOME=/home/crow/Android/Sdk
 export GPG_TTY=$(tty)
 export EDITOR="nvim"
