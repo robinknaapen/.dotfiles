@@ -84,12 +84,5 @@ spacer
 add acpi
 link ".local/bin/watch-batt"
 
-# stylefmt
-spacer
-add yarn
-spacer
-printf "\e[33mInstalling\e[39m \e[32mstylefmt\e[39m\n"
-sudo yarn global add stylefmt stylelint stylelint-order stylelint-declaration-block-order --silent > /dev/null 2>&1
-
 spacer
 printf "\e[31mDon't forget to set bspwm as default wm\e[0m"
