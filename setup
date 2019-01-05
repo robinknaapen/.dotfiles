@@ -79,6 +79,11 @@ spacer
 add xset
 link ".local/bin/watch-screen"
 
+# watch-batt
+spacer
+add acpi
+link ".local/bin/watch-batt"
+
 # stylefmt
 spacer
 add yarn
