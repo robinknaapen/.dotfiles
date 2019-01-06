@@ -1,11 +1,25 @@
 #!/bin/bash
+notify_id=-1
 
 while true; do
-    sleep 1m;
-
 	battery_level=`acpi -b | grep -P -o '[0-9]+(?=%)'`
-	if [ $battery_level -le 10 ]
+	charging=`acpi -b | grep 'Charging'`
+
+	if [ ${battery_level:-0} -le 10 ] && [ "$charging" == "" ]
 	then
-		notify-send --urgency=critical "Battery low" "Battery level is ${battery_level}%!"
+		if [ $notify_id -eq -1 ]
+		then
+			notify_id=`notify-send.sh -p --urgency=critical "Battery low" "Battery level is ${battery_level}%!"`
+		else
+			notify-send.sh -r $notify_id --urgency=critical "Battery low" "Battery level is ${battery_level}%!"
+		fi
 	fi
+
+	if [ "$charging" != "" ] &&  [ $notify_id -ne -1 ]
+	then
+		notify-send.sh -s $notify_id
+		notify_id=-1
+	fi
+
+    sleep 2s;
 done
