@@ -2,7 +2,7 @@
 DATE=$(date '+%s%3N')
 IMG="/tmp/$DATE.png"
 
-maim -s $IMG
+maim -s $IMG -u
 
 if [ $? == 0 ]; then
 	upload $IMG	
