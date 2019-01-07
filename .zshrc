@@ -27,7 +27,7 @@ alias umount="sudo umount"
 
 alias ls="ls -h --group-directories-first --color=auto"
 
-[[ "$TTY" == "/dev/tty1" ]] && exec startx;
+[[ "$TTY" == "/dev/tty1" ]] && exec startx -- -keeptty 2> /dev/null
 
 # Antigen
 antigen bundle zsh-users/zsh-syntax-highlighting
