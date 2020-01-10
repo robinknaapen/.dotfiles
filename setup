@@ -41,6 +41,7 @@ link ".config/sxhkd"
 # zsh
 spacer
 add zsh zsh-completions
+link ".zsh_plugins"
 
 spacer
 printf "\e[33mCloning\e[39m \e[32moh-my-zsh\e[39m\n"
@@ -83,6 +84,10 @@ link ".local/bin/watch-screen"
 spacer
 add acpi
 link ".local/bin/watch-batt"
+
+spacer
+add compton
+link ".config/compton.conf"
 
 spacer
 printf "\e[31mDon't forget to set bspwm as default wm\e[0m"

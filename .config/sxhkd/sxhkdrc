@@ -2,13 +2,17 @@
 # wm independent hotkeys
 #
 
+# browser
+super + w
+	GTK_THEME=vimix-light-ruby firefox
+
 # terminal emulator
 super + Return
 	st
 
 # program launcher
 super + @space
-	dmenu_run -i -fn 'Hack-12' -nb "#212121" -nf "#AAA" -sb "#FF5252" -sf "#FFF" -dim .5 -h 50 -w 1000 -centerx -y 695 -class "dmenu" -hist $HOME/.dmenu_hist
+	dmenu_run -fn 'Hack-15' -nb "#212121" -nf "#AAA" -sf "#FF5252" -sb "#212121" -dim .5 -w 800 -h 42 -centerx -centery -name "dmenu" -hist $HOME/.dmenu_hist -p "::" -l 0 -l 5 -i
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -97,7 +101,7 @@ super + ctrl + {1-9}
 	bspc node -o 0.{1-9}
 
 # cancel the preselection for the focused node
-super + ctrl + space
+super + ctrl + c 
 	bspc node -p cancel
 
 # cancel the preselection for the focused desktop

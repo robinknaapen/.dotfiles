@@ -1,10 +1,13 @@
+" No code execution for you
+set nomodeline
+
 " UTF-8 encoding
 scriptencoding utf-8
 set encoding=utf8
 
 exe 'source' '~/.config/nvim/plug.vim'
 
-for f in split(glob('~/.config/nvim/vimrc.d/*'), '\n')
+for f in split(glob('~/.config/nvim/vimrc.d/*.vim'), '\n')
     exe 'source' f
 endfor
 
@@ -16,7 +19,7 @@ endfor
 set lazyredraw
 
 " Rainbow parentheses
-let g:rainbow_active = 1
+" let g:rainbow_active = 1
 
 " Disable auto newlines
 set wrap
@@ -40,13 +43,32 @@ set clipboard=unnamedplus
 set tw=79
 
 " Line numbers
-set number
-set numberwidth=6
+set number relativenumber
+set numberwidth=3
 highlight LineNr ctermfg=darkgrey
 
 " Syntax highlighting
 syntax on
-colorscheme onedark
+" colorscheme onedark
+" colorscheme challenger_deep
+" colorscheme nord
+" colorscheme allomancer
+" colorscheme plain
+" colorscheme monotone
+colorscheme photon
+
+hi goFunction ctermbg=bg ctermfg=251 cterm=bold guibg=bg guifg=#c6c6c6 gui=NONE
+
+function! SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
+
+
+" let g:sierra_Twilight = 1
+" colorscheme sierra
 highlight ColorColumn guibg=Black
 
 " Make background transparent
@@ -71,6 +93,7 @@ set shortmess+=c
 
 " Ruler
 set ruler
+set cursorline
 
 " Show filename
 set laststatus=2
@@ -98,17 +121,9 @@ set formatoptions+=t
 " psql as default SQL accent
 let g:sql_type_default = 'pgsql'
 
-" NCM
-autocmd BufEnter * call ncm2#enable_for_buffer()
-set completeopt=noinsert,menuone,noselect
-let g:ncm2#matcher = 'prefix'
-let g:LanguageClient_serverCommands = {
-	\ 'vue': ['vls'],
-	\ 'cpp': ['ccls']
-\ }
+" inactivedim
+let g:diminactive_use_colorcolumn = 0
+let g:diminactive_use_syntax = 1
 
-" vim-codefmt
-call glaive#Install()
-augroup autoformat_settings
-	autocmd FileType c,cpp AutoFormatBuffer clang-format
-augroup END
+"Updatetime to foce gitgutter to update faster
+set updatetime=100

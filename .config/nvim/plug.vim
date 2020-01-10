@@ -1,7 +1,11 @@
 call plug#begin('~/.local/share/nvim/plugged')
 	" UI
-	Plug 'joshdick/onedark.vim'
+	Plug 'Nequo/vim-allomancer'
 	Plug 'luochen1990/rainbow'
+	Plug 'AlessandroYorba/Sierra'
+	Plug 'axvr/photon.vim'
+	Plug 'andreypopp/vim-colors-plain'
+	Plug 'Lokaltog/vim-monotone'
 
 	" Formater
 	Plug 'godlygeek/tabular'
@@ -9,36 +13,25 @@ call plug#begin('~/.local/share/nvim/plugged')
 	" Helpers
 	Plug 'kien/ctrlp.vim'
 	Plug 'tpope/vim-commentary'
-	Plug 'editorconfig/editorconfig-vim'
+	Plug 'blueyed/vim-diminactive'
 
-	" vim-codefmt
-	Plug 'google/vim-maktaba'
-	Plug 'google/vim-codefmt'
-	Plug 'google/vim-glaive'
-
-	" NCM2
-	Plug 'autozimu/LanguageClient-neovim', {
-		\ 'branch': 'next',
-		\ 'do': 'bash install.sh',
-	\ }
-	Plug 'ncm2/ncm2'
-    Plug 'roxma/nvim-yarp'
-	Plug 'ncm2/ncm2-go'
-	Plug 'ncm2/ncm2-tern', {'do': 'yarn'}
-	Plug 'ncm2/nvim-typescript', {'for': 'typescript', 'do': './install.sh'}
-	Plug 'ncm2/ncm2-snipmate'
-
-	" snipmate dependencies
-	Plug 'tomtom/tlib_vim'
-	Plug 'marcweber/vim-addon-mw-utils'
-	Plug 'garbas/vim-snipmate'
+	" Completion
+	Plug 'neoclide/coc.nvim', {'branch': 'release'}
+	" Plug 'autozimu/LanguageClient-neovim', {
+	" 	\ 'branch': 'next',
+	" 	\ 'do': 'bash install.sh',
+	" \ }
 
 	" Languages
 	Plug 'fatih/vim-go'
-	Plug 'lifepillar/pgsql.vim'
+	Plug 'rust-lang/rust.vim'
 	Plug 'cespare/vim-toml'
 	Plug 'posva/vim-vue'
 	Plug 'HerringtonDarkholme/yats.vim'
+	Plug 'rhysd/vim-crystal'
+	Plug 'wavded/vim-stylus'
+	Plug 'tpope/vim-cucumber'
+	Plug 'neovimhaskell/haskell-vim'
 
 	" Git
 	Plug 'tpope/vim-fugitive'

@@ -1,9 +1,14 @@
+export ZSH=$HOME/.oh-my-zsh
+
 # Settings
-ZSH_THEME="fuyu"
-plugins=(git antigen)
+plugins=(git cargo jira gitfast)
+source $ZSH/oh-my-zsh.sh
+source <(antibody init)
+
+antibody bundle < ~/.zsh_plugins
+ZSH_THEME="common"
 
 # Exports
-export ZSH=$HOME/.oh-my-zsh
 export GOPATH="$HOME/.Go"
 export PATH="$PATH:$HOME/.yarn/bin:$HOME/.local/bin:$GOPATH/bin:$HOME/.cargo/bin"
 export ANDROID_HOME=/home/crow/Android/Sdk
@@ -29,6 +34,4 @@ alias ls="ls -h --group-directories-first --color=auto"
 
 [[ "$TTY" == "/dev/tty1" ]] && exec startx -- -keeptty 2> /dev/null
 
-# Antigen
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen apply
+fpath=($fpath "/home/robin/.zfunctions")
