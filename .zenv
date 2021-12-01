@@ -1,0 +1,26 @@
+export ZSH="/home/robin/.oh-my-zsh"
+export ANDROID_HOME="/home/robin/Android/Sdk"
+export EDITOR=nvim
+export CHROME_EXECUTABLE=/usr/bin/google-chrome-unstable
+export GVM_ROOT=$HOME/.gvm
+export CARGO_NET_GIT_FETCH_WITH_CLI=true
+export LANG=en_US.UTF-8
+export ARCHFLAGS="-arch x86_64"
+
+paths=(
+	"$HOME/fvm/default/bin"
+	"$HOME/.local/bin"
+	"$HOME/.cargo/bin"
+	"$HOME/.config/yarn/global/node_modules/.bin"
+	"$HOME/.yarn/bin"
+	"$HOME/.local/opt/flutter/bin"
+	"$GVM_ROOT/bin"
+	"$HOME/.pub-cache/bin"
+	"/opt/android-studio/bin"
+	"/opt/android-sdk/tools/bin"
+)
+
+for p in $paths;
+do
+	export PATH=$PATH:$p
+done
