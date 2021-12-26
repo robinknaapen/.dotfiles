@@ -13,7 +13,6 @@ return require('packer').startup(function()
 		'godlygeek/tabular',
 
 		-- Helpers
-		-- 'kien/ctrlp.vim',
 		'numToStr/Comment.nvim',
 		'blueyed/vim-diminactive',
 		'ojroques/nvim-lspfuzzy',
@@ -26,19 +25,27 @@ return require('packer').startup(function()
 		'hrsh7th/nvim-cmp',
 		'hrsh7th/cmp-buffer',
 		'ray-x/lsp_signature.nvim',
+		'williamboman/nvim-lsp-installer',
 
 		-- Languages
 		'fatih/vim-go',
 		'rust-lang/rust.vim',
 		'cespare/vim-toml',
 		'evanleck/vim-svelte',
+		'LnL7/vim-nix',
+		'ziglang/zig.vim',
 
 		-- Git
 		'tpope/vim-fugitive',
 		'airblade/vim-gitgutter',
 
 		config = {
-			require('Comment').setup()
+			require('Comment').setup(),
+			require('lsp'),
+			require('bindings'),
+			require('rooter'),
+			require('fzf'),
+			require('color'),
 		}
 	}
 end)
