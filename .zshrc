@@ -1,15 +1,16 @@
-# Init direnv
+# g-install: do NOT edit, see https://github.com/stefanmaric/g
 eval "$(direnv hook zsh)"
 
-source ~/.zenv
-source ~/.zalias
-
-# -------- start oh-my-zsh -------- 
-ZSH_THEME="refined"
-plugins=(git)
+plugins=(ripgrep docker gitignore)
 
 source $ZSH/oh-my-zsh.sh
-# -------- end oh-my-zsh -------- 
+source <(antibody init)
+source $HOME/.zshalias
 
-# Go version manager
-[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+antibody bundle < ~/.zsh_plugins
+
+zstyle ':completion:*:make:*:targets' call-command true # outputs all possible results for make targets
+zstyle ':completion:*:make:*' tag-order targets
+
+fpath+=(/home/robin/.zfunctions)
+autoload -U compinit && compinit

@@ -1,0 +1,11 @@
+#!/bin/bash
+set -e
+
+DATE=$(date '+%s%3N')
+IMG="/tmp/$DATE.png"
+
+selection=$(hacksaw -f "-i %i -g %g") 
+shotgun $selection - | xclip -t 'image/png' -selection clipboard
+
+shotgun $selection $IMG
+notify-send -i $IMG $IMG

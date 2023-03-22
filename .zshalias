@@ -1,0 +1,80 @@
+#!/bin/zsh
+
+alias add="sudo xbps-install"
+alias del="sudo xbps-remove"
+alias update="sudo xbps-install -S"
+alias upgrade="sudo xbps-install -Suv"
+alias search="xbps-query -Rs"
+alias clean="del -oO && sudo vkpurge rm all"
+
+alias ls="exa --group-directories-first --color=auto"
+alias la="ls -la --git"
+
+alias gvm="$GOPATH/bin/g"
+
+func win10() {
+	virsh --connect=qemu:///system start win10
+	virt-viewer --connect=qemu:///system win10&; disown
+}
+
+func catJSON() {
+	python3 -m json.tool < $1 | bat --language=json
+}
+
+func hist() {
+	history -E 0 | grep -P "\d+  $@" | bat
+}
+
+func openvpn () {
+	if [ -d "$HOME/.openvpn/$1" ]
+	then
+		(cd "$HOME/.openvpn/$1" && sudo -s ls && sudo -s /usr/bin/openvpn --config *.ovpn)
+	else
+		echo "$1 was not found"
+	fi
+}
+
+nvm_install_targets=(nvm npm nvim pnpm node yarn buf)
+func _install_nvm() {
+  for t in $nvm_install_targets
+  do
+    unfunction $t
+  done
+
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This sets up nvm
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # nvm bash_completion
+
+  nvm use --lts
+
+  "$@"
+}
+
+for t in $nvm_install_targets
+do
+	function $t() {
+		_install_nvm $funcstack[1] $@
+	}
+done
+
+func git_current_branch () {
+	local ref
+	ref=$(__git_prompt_git symbolic-ref --quiet HEAD 2> /dev/null)
+	local ret=$?
+
+	if [[ $ret != 0 ]]
+	then
+		[[ $ret == 128 ]] && return
+		ref=$(__git_prompt_git rev-parse --short HEAD 2> /dev/null)  || return
+	fi
+
+	echo ${ref#refs/heads/}
+}
+
+alias gcn!="git commit --amend --no-edit"
+alias gc!="git commit --amend"
+alias gpsup='git push --set-upstream origin $(git_current_branch)'
+
+# Nx pnpm
+alias pnx="pnpm nx --"
+
+alias vim=nvim

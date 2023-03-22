@@ -1,3 +1,6 @@
+vim.api.nvim_command("set number relativenumber")
+
 require('commands')
-require('plugins')
 require('clipboard')
+require('mapping')
+require('plugins')

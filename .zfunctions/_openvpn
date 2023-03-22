@@ -1,0 +1,7 @@
+#compdef openvpn
+
+_openvpn() { 
+  _files -/ -W /home/robin/.openvpn
+} 
+
+_openvpn
