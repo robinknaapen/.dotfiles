@@ -1,0 +1,98 @@
+source $HOME/.zshalias
+
+source "$HOME/.zi/bin/zi.zsh"
+autoload -Uz _zi
+
+(( ${+_comps} )) && _comps[zi]=_zi
+zicompinit
+
+#################
+# Meta
+#################
+zi light z-shell/z-a-meta-plugins
+zi light z-shell/z-a-bin-gem-node
+zi light @annexes
+zi light-mode for @sindresorhus/pure
+
+#################
+# COMP
+#################
+zi ice as"completion"
+zi snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
+
+zi ice wait lucid as'completion' blockf has'zoxide'
+zi snippet https://github.com/ajeetdsouza/zoxide/blob/main/contrib/completions/_zoxide
+
+zi ice lucid wait as'completion'
+zi light zsh-users/zsh-completions
+
+zi ice lucid wait as'completion' blockf has'rg' mv'rg.zsh -> _rg'
+zi snippet https://github.com/BurntSushi/ripgrep/blob/master/crates/core/flags/complete/rg.zsh
+
+#################
+# GH-R
+#################
+zi ice as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' \
+  atpull'%atclone' src"zhook.zsh"
+zi light direnv/direnv
+
+zi ice from'gh-r' as'program' sbin'**/eza -> eza' atclone'cp -vf completions/eza.zsh _eza'
+zi light eza-community/eza
+
+#################
+# SC
+#################
+zi ice cargo'!zoxide'
+zi load z-shell/zsh-zoxide
+
+zi ice cargo'!eza'
+zi load z-shell/zsh-eza
+
+#################
+# OMZ
+#################
+zi snippet OMZP::gitignore
+zi snippet OMZL::history.zsh
+
+zi snippet OMZ::plugins/git/git.plugin.zsh
+zi load 'zsh-users/zsh-history-substring-search'
+
+#################
+# Pretzo
+#################
+zi snippet PZTM::node
+zi snippet PZTM::pacman
+
+#################
+# Rust
+#################
+zi light z-shell/z-a-rust
+
+################
+# ZSH opts
+################
+setopt append_history         # Allow multiple sessions to append to one Zsh command history.
+setopt extended_history       # Show timestamp in history.
+setopt hist_expire_dups_first # Expire A duplicate event first when trimming history.
+setopt hist_find_no_dups      # Do not display a previously found event.
+setopt hist_ignore_all_dups   # Remove older duplicate entries from history.
+setopt hist_ignore_dups       # Do not record an event that was just recorded again.
+setopt hist_ignore_space      # Do not record an Event Starting With A Space.
+setopt hist_reduce_blanks     # Remove superfluous blanks from history items.
+setopt hist_save_no_dups      # Do not write a duplicate event to the history file.
+setopt hist_verify            # Do not execute immediately upon history expansion.
+setopt inc_append_history     # Write to the history file immediately, not when the shell exits.
+setopt share_history          # Share history between different instances of the shell.
+
+#################
+# Bindkeys
+#################
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /home/robink/.dart-cli-completion/zsh-config.zsh ]] && . /home/robink/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
+
+eval $(dsm env zsh)

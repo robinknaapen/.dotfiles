@@ -1,0 +1,15 @@
+#!/bin/zsh
+
+func hist() {
+	history -E 0 | grep -P "\d+  $@" | bat
+}
+
+go-test-cover () { 
+    t="/tmp/go-cover.$$.tmp"
+    go test -coverprofile=$t $@ && go tool cover -html=$t && unlink $t
+}
+
+alias vim=nvim
+alias vi=nvim
+
+eval "$(gh copilot alias -- zsh)"

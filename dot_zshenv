@@ -1,0 +1,21 @@
+export EDITOR="nvim"
+export CARGO_NET_GIT_FETCH_WITH_CLI=true
+
+# https://github.com/z-shell/zsh-zoxide?tab=readme-ov-file#environment-variables
+export _ZO_CMD_PREFIX=cd
+export _EZA_PARAMS=(
+	'--git' '--group' '--group-directories-first'
+	'--time-style=long-iso' '--color-scale=all'
+)
+
+paths=(
+	"$HOME/.local/bin"
+	"$HOME/go/bin"
+	"$HOME/.cargo/bin"
+	"$HOME/.nodenv/shims"
+)
+
+for p in $paths;
+do
+	export PATH=$PATH:$p
+done
