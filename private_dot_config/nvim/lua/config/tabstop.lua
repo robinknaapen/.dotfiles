@@ -34,7 +34,3 @@ set_tabs(
 	},
 	{ tabstop = 2, shiftwidth = 2 }
 )
-
-vim.filetype.add({
-	pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
-})
