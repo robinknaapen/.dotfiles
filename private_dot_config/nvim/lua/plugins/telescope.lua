@@ -8,8 +8,12 @@ return {
 			mappings = {}
 		},
 		extensions = {
+			"projects",
 			"textcase"
 		}
+	},
+	cmd = {
+		"Telescope",
 	},
 	keys = {
 		{
@@ -43,6 +47,15 @@ return {
 			end,
 			mode = { "n" },
 			desc = "Telescope project",
+		},
+		{
+			"<leader>fd",
+			function()
+				require('telescope.builtin').diagnostics()
+			end,
+			mode = { "n" },
+			desc = "Telescope diagnostics",
+
 		},
 		{
 			"<leader>tt",

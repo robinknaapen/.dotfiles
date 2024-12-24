@@ -3,7 +3,8 @@ return {
 	dependencies = {
 		'nvim-telescope/telescope.nvim',
 	},
-	cmd = {
-		"Subs",
-	},
+	opts = {},
+	keys = {
+		"<leader>tt"
+	}
 }

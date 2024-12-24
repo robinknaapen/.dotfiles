@@ -11,7 +11,7 @@ vim.opt.mouse = ''
 vim.opt.scrolloff = 999
 
 vim.opt.completeopt = { "menu", "menuone", "noinsert", "noselect" }
-vim.diagnostic.config({ virtual_lines = { only_current_line = true } })
+vim.diagnostic.config({ virtual_lines = { only_current_line = true }, virtual_text = false })
 
 vim.filetype.add({
 	pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },

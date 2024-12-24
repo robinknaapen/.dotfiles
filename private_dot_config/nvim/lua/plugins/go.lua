@@ -5,8 +5,6 @@ return {
 		"neovim/nvim-lspconfig",
 		"nvim-treesitter/nvim-treesitter",
 	},
-	config = function()
-		require("go").setup()
-	end,
+	opts = {},
 	ft = { "go", 'gomod' },
 }
