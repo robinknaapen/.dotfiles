@@ -1,0 +1,3 @@
+func hist() {
+	history -E 0 | grep -P "\d+  $@" | bat
+}
