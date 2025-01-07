@@ -7,7 +7,7 @@ return {
 	opts = {
 		popupmenu = {
 			enabled = true,
-			backend = "cmp",
+			backend = "nui",
 		},
 		lsp = {
 			progress = {
