@@ -13,4 +13,5 @@ return {
 		"gc",
 		"gcc",
 	},
+	enabled = false
 }
