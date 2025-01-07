@@ -1,7 +1,7 @@
 return {
 	'kkrime/project.nvim',
 	name = "project_nvim",
-	branch = 'workspace_folders',
+	branch = 'corner_case_embedded_projects',
 	opts = {
 		manual_mode = false,
 		detection_methods = { "lsp", "pattern" },
