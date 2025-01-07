@@ -4,5 +4,5 @@ return {
 		suggestion = { enabled = false },
 		panel = { enabled = false },
 	},
-	enable = false
+	enabled = false
 }
