@@ -3,5 +3,6 @@ return {
 	opts = {
 		suggestion = { enabled = false },
 		panel = { enabled = false },
-	}
+	},
+	enable = false
 }
