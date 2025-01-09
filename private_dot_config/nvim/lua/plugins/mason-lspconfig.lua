@@ -14,6 +14,12 @@ return {
 			mode = { "n" },
 			desc = "Toggle inlayhints",
 		},
+		{
+			"<leader>rn",
+			vim.lsp.buf.rename,
+			mode = { "n" },
+			desc = "Rename",
+		},
 	},
 	opts = function()
 		local mason = require("mason")
