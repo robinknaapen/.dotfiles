@@ -62,6 +62,10 @@ return {
 					})
 				end,
 
+				asm_lsp = function()
+					lspconfig.asm_lsp.setup({})
+				end,
+
 				rust_analyzer = function()
 					lspconfig.rust_analyzer.setup({
 						settings = {
@@ -94,12 +98,7 @@ return {
 				end,
 
 				jsonls = function()
-					local capabilities = vim.lsp.protocol.make_client_capabilities()
-					capabilities.textDocument.completion.completionItem.snippetSupport = true
-
 					lspconfig.jsonls.setup {
-						capabilities = capabilities,
-
 						settings = {
 							json = {
 								schemas = require('schemastore').json.schemas(),
@@ -110,12 +109,7 @@ return {
 				end,
 
 				yamlls = function()
-					local capabilities = vim.lsp.protocol.make_client_capabilities()
-					capabilities.textDocument.completion.completionItem.snippetSupport = true
-
 					lspconfig.yamlls.setup({
-						capabilities = capabilities,
-
 						settings = {
 							yaml = {
 								schemaStore = {

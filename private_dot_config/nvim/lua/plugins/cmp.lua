@@ -2,6 +2,8 @@ return {
 	'hrsh7th/nvim-cmp',
 	lazy = false,
 	dependencies = {
+		'neovim/nvim-lspconfig',
+
 		"folke/noice.nvim",
 		'onsails/lspkind.nvim',
 
@@ -10,18 +12,17 @@ return {
 		'hrsh7th/cmp-nvim-lsp',
 		'hrsh7th/cmp-nvim-lua',
 
-		{
-			"zbirenbaum/copilot-cmp",
-			main = "copilot_cmp",
-			opts = {},
-			dependencies = {
-				"zbirenbaum/copilot.lua",
-			}
-		},
+		-- {
+		-- 	"zbirenbaum/copilot-cmp",
+		-- 	main = "copilot_cmp",
+		-- 	opts = {},
+		-- 	dependencies = {
+		-- 		"zbirenbaum/copilot.lua",
+		-- 	}
+		-- },
 
 		-- Snippets
 		'L3MON4D3/LuaSnip',
-		'rafamadriz/friendly-snippets',
 	},
 	event = "InsertEnter",
 	config = function()
@@ -29,12 +30,27 @@ return {
 		local luasnip = require("luasnip")
 		local lspkind = require('lspkind')
 
+		-- Add capabilities of cmp_nvim_lsp to lsp_config
+		local lspconfig = require('lspconfig')
+		lspconfig.util.default_config = vim.tbl_deep_extend("force", lspconfig.util.default_config, {
+			capabilities = require("cmp_nvim_lsp").default_capabilities(),
+		})
+
+		cmp.setup.cmdline(':', {
+			mapping = cmp.mapping.preset.cmdline(),
+			sources = cmp.config.sources({
+				{ name = 'path' },
+				{ name = 'cmdline' }
+			})
+		})
+
 		cmp.setup({
 			sources = {
 				-- { name = "copilot" },
 				{ name = 'nvim_lsp' },
 				{ name = 'luasnip', },
 				{ name = 'nvim_lua' },
+				{ name = 'path' },
 				-- { name = 'cmdline' },
 			},
 
@@ -86,7 +102,6 @@ return {
 						Operator = "󰆕",
 						TypeParameter = "",
 					}
-
 				})
 			},
 

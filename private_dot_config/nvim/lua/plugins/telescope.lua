@@ -58,14 +58,6 @@ return {
 
 		},
 		{
-			"<leader>tt",
-			function()
-				require('telescope').extensions["textcase"].normal_mode_quick_change()
-			end,
-			mode = { "n", "x" },
-			desc = "Telescope text transform",
-		},
-		{
 			"gi",
 			function()
 				require('telescope.builtin').lsp_implementations()

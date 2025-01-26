@@ -34,3 +34,10 @@ set_tabs(
 	},
 	{ tabstop = 2, shiftwidth = 2 }
 )
+
+set_tabs(
+	{
+		'python'
+	},
+	{ tabstop = 4, shiftwidth = 4 }
+)
