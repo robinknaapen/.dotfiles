@@ -51,11 +51,13 @@ zi load z-shell/zsh-eza
 #################
 # OMZ
 #################
-zi snippet OMZP::gitignore
 zi snippet OMZL::history.zsh
 
-zi snippet OMZ::plugins/git/git.plugin.zsh
+zi snippet OMZP::gitignore
+zi snippet OMZP::git
+
 zi load 'zsh-users/zsh-history-substring-search'
+zi snippet PZTM::history-substring-search
 
 #################
 # Pretzo

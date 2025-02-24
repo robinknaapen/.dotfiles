@@ -13,6 +13,7 @@ paths=(
 	"$HOME/go/bin"
 	"$HOME/.cargo/bin"
 	"$HOME/.nodenv/shims"
+	"$HOME/.local/share/nvim/mason/bin"
 )
 
 for p in $paths;
