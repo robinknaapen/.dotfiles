@@ -49,6 +49,14 @@ return {
 			desc = "Telescope project",
 		},
 		{
+			"<leader>ft",
+			function()
+				require('telescope').extensions['todo-comments'].todo()
+			end,
+			mode = { "n" },
+			desc = "Telescope todo-comments",
+		},
+		{
 			"<leader>fd",
 			function()
 				require('telescope.builtin').diagnostics()

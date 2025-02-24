@@ -43,6 +43,31 @@ return {
 					})
 				end,
 
+				tailwindcss = function()
+					lspconfig.tailwindcss.setup({
+						filetypes = { "html", "css", "scss", "javascript", "typescript", "javascriptreact", "typescriptreact", "svelte", "vue" },
+						settings = {
+							tailwindCSS = {
+								classAttributes = { "class", "className", "class:list", "classList" },
+								includeLanguages = {
+									vue = "html",
+									svelte = "html"
+								},
+								lint = {
+									cssConflict = "warning",
+									invalidApply = "error",
+									invalidConfigPath = "error",
+									invalidScreen = "error",
+									invalidTailwindDirective = "error",
+									invalidVariant = "error",
+									recommendedVariantOrder = "warning"
+								},
+								validate = true,
+							},
+						},
+					})
+				end,
+
 				ts_ls = function()
 					local mason_packages = vim.fn.stdpath("data") .. "/mason/packages"
 					local volar_path = mason_packages ..
