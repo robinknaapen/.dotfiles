@@ -1,0 +1,9 @@
+[00:00:00.000] (7dd0424d0c80) INFO   Starting!
+[00:00:00.000] (7dd0424d0c80) DEBUG  Content-Length: 3590
+[00:00:00.000] (7dd0424d0c80) INFO   Recieved initialize
+[00:00:00.061] (7dd0424d0c80) DEBUG  Content-Length: 52
+[00:00:00.061] (7dd0424d0c80) INFO   Recieved initialized
+[00:00:01.765] (7dd0424d0c80) DEBUG  Content-Length: 44
+[00:00:01.765] (7dd0424d0c80) INFO   Recieved shutdown
+[00:00:01.765] (7dd0424d0c80) ERROR  Unimplemented method: shutdown
+[00:00:01.802] (7dd0424d0c80) INFO   Exiting

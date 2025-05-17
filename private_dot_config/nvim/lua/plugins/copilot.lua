@@ -10,7 +10,9 @@ return {
 				return true
 			end,
 		},
-		suggestion = { enabled = false },
-		panel = { enabled = false },
-	},
+		suggestion = {
+			enabled = false,
+		},
+		panel = { enabled = true },
+	}
 }

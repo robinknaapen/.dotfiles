@@ -5,6 +5,8 @@ return {
 		"neovim/nvim-lspconfig",
 		"nvim-treesitter/nvim-treesitter",
 	},
-	opts = {},
+	opts = {
+		diagnostic = false,
+	},
 	ft = { "go", 'gomod' },
 }

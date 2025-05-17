@@ -1,16 +1,28 @@
 return {
-	'nvim-telescope/telescope.nvim',
+	"nvim-telescope/telescope.nvim",
 	dependencies = {
-		'nvim-lua/plenary.nvim',
+		"nvim-lua/plenary.nvim",
+		"folke/trouble.nvim",
 	},
 	opts = {
 		defaults = {
-			mappings = {}
+			mappings = {},
 		},
 		extensions = {
 			"projects",
-			"textcase"
-		}
+			"textcase",
+			file_browser = {
+				hijack_netrw = true,
+				mappings = {
+					["i"] = {
+						-- your custom insert mode mappings
+					},
+					["n"] = {
+						-- your custom normal mode mappings
+					},
+				},
+			},
+		},
 	},
 	cmd = {
 		"Telescope",
@@ -19,13 +31,13 @@ return {
 		{
 			"<leader>ff",
 			function()
-				local builtin = require('telescope.builtin')
+				local builtin = require("telescope.builtin")
 				local ok = pcall(builtin.git_files, {
-					show_untracked = true
+					show_untracked = true,
 				})
 				if not ok then
 					builtin.find_files({
-						hidden = true
+						hidden = true,
 					})
 				end
 			end,
@@ -35,7 +47,7 @@ return {
 		{
 			"<leader>fg",
 			function()
-				require('telescope.builtin').live_grep()
+				require("telescope.builtin").live_grep()
 			end,
 			mode = { "n" },
 			desc = "Telescope live grep",
@@ -43,7 +55,7 @@ return {
 		{
 			"<leader>fp",
 			function()
-				require('telescope').extensions["projects"].projects()
+				require("telescope").extensions["projects"].projects()
 			end,
 			mode = { "n" },
 			desc = "Telescope project",
@@ -51,7 +63,7 @@ return {
 		{
 			"<leader>ft",
 			function()
-				require('telescope').extensions['todo-comments'].todo()
+				require("telescope").extensions["todo-comments"].todo()
 			end,
 			mode = { "n" },
 			desc = "Telescope todo-comments",
@@ -59,16 +71,26 @@ return {
 		{
 			"<leader>fd",
 			function()
-				require('telescope.builtin').diagnostics()
+				require("telescope.builtin").diagnostics()
 			end,
 			mode = { "n" },
 			desc = "Telescope diagnostics",
-
+		},
+		{
+			"<leader>fb",
+			function()
+				require("telescope").extensions.file_browser.file_browser({
+					path = vim.fn.expand("%:p:h"),
+					select_buffer = true,
+				})
+			end,
+			mode = { "n" },
+			desc = "Telescrope file_browser",
 		},
 		{
 			"gi",
 			function()
-				require('telescope.builtin').lsp_implementations()
+				require("telescope.builtin").lsp_implementations()
 			end,
 			mode = { "n" },
 			desc = "LSP Implementations",
@@ -76,7 +98,7 @@ return {
 		{
 			"gr",
 			function()
-				require('telescope.builtin').lsp_references()
+				require("telescope.builtin").lsp_references()
 			end,
 			mode = { "n" },
 			desc = "LSP References",
@@ -84,7 +106,7 @@ return {
 		{
 			"gd",
 			function()
-				require('telescope.builtin').lsp_definitions()
+				require("telescope.builtin").lsp_definitions()
 			end,
 			mode = { "n" },
 			desc = "LSP Definitions",
@@ -92,7 +114,7 @@ return {
 		{
 			"gt",
 			function()
-				require('telescope.builtin').lsp_type_definitions()
+				require("telescope.builtin").lsp_type_definitions()
 			end,
 			mode = { "n" },
 			desc = "LSP Type Definitions",
@@ -104,7 +126,7 @@ return {
 			end,
 			mode = { "n" },
 			desc = "Code actions",
-		}
+		},
 	},
-	lazy = true
+	lazy = true,
 }

@@ -9,6 +9,7 @@ return {
 
 		-- adapters
 		"fredrikaverpil/neotest-golang",
+		"marilari88/neotest-vitest",
 	},
 
 	config = function()
@@ -30,6 +31,7 @@ return {
 			},
 			adapters = {
 				require("neotest-golang")(neotest_golang_opts), -- Registration
+				require("neotest-vitest"),
 			},
 		})
 	end,

@@ -16,7 +16,11 @@ vim.opt.cmdheight = 2
 vim.opt.mouse = ''
 
 vim.opt.completeopt = { "menu", "menuone", "noinsert", "noselect" }
-vim.diagnostic.config({ virtual_lines = { only_current_line = true }, virtual_text = false })
+vim.diagnostic.config({
+	virtual_lines = { current_line = true },
+	virtual_text = false,
+	update_in_insert = true,
+})
 
 vim.filetype.add({
 	pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },

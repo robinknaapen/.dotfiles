@@ -1,14 +1,14 @@
 return {
 	"stevearc/conform.nvim",
-	event = { "BufWritePre" },
-	cmd = { "ConformInfo" },
 	opts = {
-		format_on_save = { timeout_ms = 500 },
-		formatters_by_ft = {
-			go = { "goimports" },
+		format_on_save = {
+			timeout_ms = 500,
+			lsp_format = "fallback",
 		},
-		default_format_opts = {
-			lsp_format = "last",
+
+		formatters_by_ft = {
+			go = { "goimports", "gofumpt" },
+			vue = { "prettierd", lsp_format = "first" },
 		},
 	},
 }
