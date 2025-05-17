@@ -32,10 +32,6 @@ zi snippet https://github.com/BurntSushi/ripgrep/blob/master/crates/core/flags/c
 #################
 # GH-R
 #################
-zi ice as"program" make'!' atclone'./direnv hook zsh > zhook.zsh' \
-  atpull'%atclone' src"zhook.zsh"
-zi light direnv/direnv
-
 zi ice from'gh-r' as'program' sbin'**/eza -> eza' atclone'cp -vf completions/eza.zsh _eza'
 zi light eza-community/eza
 
@@ -98,3 +94,4 @@ bindkey '^[[B' history-substring-search-down
 ## [/Completion]
 
 eval $(dsm env zsh)
+eval "$(direnv hook zsh)"
