@@ -50,7 +50,11 @@ zi load z-shell/zsh-eza
 zi snippet OMZL::history.zsh
 
 zi snippet OMZP::gitignore
+zi snippet OMZP::docker-compose
+zi snippet OMZP::direnv
 zi snippet OMZP::git
+
+# zi load 'jeffreytse/zsh-vi-mode'
 
 zi load 'zsh-users/zsh-history-substring-search'
 zi snippet PZTM::history-substring-search
@@ -94,4 +98,11 @@ bindkey '^[[B' history-substring-search-down
 ## [/Completion]
 
 eval $(dsm env zsh)
-eval "$(direnv hook zsh)"
+
+# pnpm
+export PNPM_HOME="/home/robink/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

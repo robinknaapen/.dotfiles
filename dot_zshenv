@@ -14,6 +14,7 @@ paths=(
 	"$HOME/.cargo/bin"
 	"$HOME/.nodenv/shims"
 	"$HOME/.local/share/nvim/mason/bin"
+  "$HOME/.local/share/pnpm"
 )
 
 for p in $paths;
